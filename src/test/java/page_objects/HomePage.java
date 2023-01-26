@@ -3,6 +3,8 @@ package page_objects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import webdriver_manager.DriverManager;
+
 public class HomePage {
 
 private static HomePage loginPageInstance;
@@ -24,14 +26,24 @@ private static HomePage loginPageInstance;
 	}
 		
 	
-	@FindBy(className="btn") 
-	private WebElement btngetstarted;
+	@FindBy(xpath="//a[@href='/home']")WebElement btngetstarted;
+
 	
 	public void btn_getstartedclick() {
 		
 		btngetstarted.click();
+		System.out.println("The user clicks Get started button");
+	}
+	
+	
+	public String redirectedToHomePage()
+	
+	{
+		String title=DriverManager.getDriver().getTitle();
+		return title;
 		
 	}
+	
 	
 	//@FindBy(className="dropdown")
 	//private WebElement drpdowntoggle;
