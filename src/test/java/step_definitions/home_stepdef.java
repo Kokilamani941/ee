@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import webdriver_manager.DriverManager;
 
-public class home_stepdef {
+public class home_stepdef {	
 
 	@Given("User opens DS Algo portal link")
 	public void user_opens_ds_algo_portal_link() {
