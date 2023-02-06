@@ -11,6 +11,11 @@ public class SigninPage {
 
 	private static SigninPage loginPageInstance;
 	
+	@FindBy (xpath="//a[@href='/login']" )WebElement Signinlink;
+	@FindBy (id="id_username")private WebElement txt_username;
+	@FindBy (id="id_password")WebElement txt_password;
+	@FindBy (xpath="//input[@value=\"Login\"]")WebElement lin_login;
+	
 	public SigninPage() {
 		PageFactory.initElements(DriverManager.getDriver(),this);
 		
@@ -26,13 +31,30 @@ public class SigninPage {
 		
 	}
 	
-	@FindBy (linkText =("sign in"))WebElement Signinlink;
-	@FindBy (id="id_username")private WebElement txt_username;
-	@FindBy (id="id_password")WebElement txt_password;
-	@FindBy (xpath="//input[@value=\"Login\"]")WebElement lin_login;
+
 	
-	public void StringinLinkbtn()
+	public void StringinLinkbtn(String username, String password)
 	{
 		Signinlink.click();
+		
+		System.out.println("Im in Sigin page");
 	}
+	
+	public void doLogin(String username, String password) {
+
+		txt_username.clear();
+		txt_username.sendKeys("userkoki");
+		 txt_password.clear();
+		 txt_password.sendKeys("egret@123");
+			lin_login.click();
+
+		
+	}
+	public void login()
+	{
+		lin_login.click();
+		
+		System.out.println("Im in Sigin page");
+	}
+	
 }

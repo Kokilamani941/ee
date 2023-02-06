@@ -90,5 +90,3 @@ Feature: Testing Linkedlist page
    And The user clicks on the Practice Questions
    Then The user should be directed to Practice Questions of Linked List Page
 
-
-

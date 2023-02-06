@@ -4,6 +4,7 @@ public class Constants {
 
 	
 	public static final String EDITORURL = null;
+	public static final String LinkedListpage = null;
 	public static  String APP_URL;
 	public static String BROWSER;
 	public static String USERNAME;

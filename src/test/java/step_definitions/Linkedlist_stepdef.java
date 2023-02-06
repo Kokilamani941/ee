@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 
+import constants.Constants;
 import constants.Loggerload;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,20 +16,22 @@ import webdriver_manager.DriverManager;
 public class Linkedlist_stepdef {
 
 	WebDriver driver = DriverManager.getDriver();	
-	Linkedlistpage ll = Linkedlistpage.getInstance();
-    String enterCode;
+	Linkedlistpage ll =new  Linkedlistpage();
 	
 //@Demo_ll_01
 	@Given("The User is on signin page")
-	public void the_user_is_on_signin_page() {
+	public void the_user_is_on_signin_page() throws InterruptedException {
 
-			
+		DriverManager.getDriver().get(Constants.LinkedListpage);
+		DriverManager.getDriver().manage().window().maximize();
+
 		System.out.println("User get in to sigin in page after signin");    
 	}
 	
 
 	@When("The user enter valid user name and password")
-	public void the_user_enter_valid_user_name_and_password() {
+	public void the_user_enter_valid_user_name_and_password() throws InterruptedException {
+		ll.getstart();
 		System.out.println("User enter the valid usernam and password");    
 
 	}
@@ -54,8 +57,8 @@ public class Linkedlist_stepdef {
 
 	@When("The user is selecting the linked list item from the drop down")
 	public void the_user_is_selecting_the_linked_list_item_from_the_drop_down() throws InterruptedException {
-		Thread.sleep(1000);
-		ll. getstart_linkedlist(); 
+	//	Thread.sleep(1000);
+      //  ll.dropdown();
 		System.out.println("User Clicks on Get Started button linkedlist Page");
 	}
 	
@@ -76,8 +79,9 @@ public class Linkedlist_stepdef {
 
 	
 	@When("The user clicks the introduction link")
-	public void the_user_clicks_the_introduction_link() {
-		System.out.println("User clicks the linked list page after click the link");
+	public void the_user_clicks_the_introduction_link() throws InterruptedException {
+		ll.getstart_linkedlist();
+  		System.out.println("User clicks the linked list page after click the link");
 
 	}
 
@@ -214,4 +218,3 @@ public class Linkedlist_stepdef {
 
 
 }
-

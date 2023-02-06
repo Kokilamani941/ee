@@ -14,7 +14,10 @@ public class Linkedlistpage {
 	//common_utils initWebElements=new common_utils();
 	private static Linkedlistpage loginPageInstance;
 
-	public Linkedlistpage() {
+	@FindBy(xpath = "//a[@href='linked-list']")WebElement getstart_linkedlist;
+	@FindBy(linkText = "Get Started")WebElement getStarted;
+	
+public Linkedlistpage() {
 		
 		PageFactory.initElements(DriverManager.getDriver(), this);	
 		
@@ -29,35 +32,50 @@ public class Linkedlistpage {
 				return loginPageInstance;
 				
 			}
+
+//	
+	@FindBy(xpath = "//a[@class='nav-link dropdown-toggle']")WebElement dropDown;
+
+	
+	@FindBy(xpath="//a[@href='introduction']")WebElement introductionLink;
+	
+	@FindBy(xpath = "//a[@href='/tryEditor']")WebElement tryHereLink;
+	@FindBy(xpath = "//*[@class=' CodeMirror-line ']")WebElement editorpythonInput; 
+	@FindBy(id = "output")WebElement output;
+	@FindBy(xpath = "//*[@id='answer_form']/button")WebElement runButton;
+	
+	
+	@FindBy (xpath="//a[@href='creating-linked-list']")WebElement creating_linked_list;
+	@FindBy (xpath="//a[@href='implement-linked-list-in-python']")WebElement implementLLInPythonLink; 
+	@FindBy (xpath="//a[@href='types-of-linked-list']")WebElement typesOfLLLink;  
+	@FindBy (xpath="//a[@href='traversal']")WebElement traversalLink; 
+	@FindBy (xpath="//a[@href='insertion-in-linked-list']")WebElement insertionLink; 
+	@FindBy (xpath="//a[@href='deletion-in-linked-list']")WebElement deletionLink; 
+	@FindBy (xpath="//a[@href='/linked-list/practice']")WebElement practiceQuestionLink; 
+
+	
 		
 	//Homepage
       //  @FindBy(linkText = "Get Started")WebElement getStarted;
 		//@FindBy(xpath = "//a[@class='nav-link dropdown-toggle']")WebElement dropDown;
 		//@FindBy(xpath = "//a[@href='/linked-list']")WebElement dropdown_linkedlist;
 		
-		@FindBy(xpath = "//a[@href='linked-list']")WebElement getstart_linkedlist;
-
-		@FindBy(xpath="//a[@href='introduction']")WebElement introductionLink;
-		
-		@FindBy(xpath = "//a[@href='/tryEditor']")WebElement tryHereLink;
-		@FindBy(xpath = "//*[@class=' CodeMirror-line ']")WebElement editorpythonInput; 
-		@FindBy(id = "output")WebElement output;
-		@FindBy(xpath = "//*[@id='answer_form']/button")WebElement runButton;
-		
-		
-		@FindBy (xpath="//a[@href='creating-linked-list']")WebElement creating_linked_list;
-		@FindBy (xpath="//a[@href='implement-linked-list-in-python']")WebElement implementLLInPythonLink; 
-		@FindBy (xpath="//a[@href='types-of-linked-list']")WebElement typesOfLLLink;  
-		@FindBy (xpath="//a[@href='traversal']")WebElement traversalLink; 
-		@FindBy (xpath="//a[@href='insertion-in-linked-list']")WebElement insertionLink; 
-		@FindBy (xpath="//a[@href='deletion-in-linked-list']")WebElement deletionLink; 
-		@FindBy (xpath="//a[@href='/linked-list/practice']")WebElement practiceQuestionLink; 
-
-		public void navigateToHomePage() throws InterruptedException {
-			//DriverManager.getDriver().get(Constants.HOMEPAGEURL);
+		public void navigateToLinkedlistpage() throws InterruptedException {
+			DriverManager.getDriver().get(Constants.LinkedListpage);
 			Thread.sleep(1000);
-			Loggerload.info("user is in homepage");
+			Loggerload.info("user is in LL");
 		}
+		public void getstart() throws InterruptedException {
+			getStarted.click();
+			Loggerload.info("user clicked on Get started button");
+			Thread.sleep(1000);
+		}	
+		
+		public void dropdown() throws InterruptedException {
+			dropDown.click();
+			Loggerload.info("user clicked on Get started button");
+			Thread.sleep(1000);
+		}	
 		
 		public void getstart_linkedlist() throws InterruptedException {
 			Thread.sleep(1000);
@@ -169,3 +187,8 @@ public class Linkedlistpage {
 }
 
 		
+
+
+
+
+

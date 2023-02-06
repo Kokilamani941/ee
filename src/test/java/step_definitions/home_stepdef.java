@@ -4,9 +4,12 @@ import constants.Constants;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import page_objects.HomePage;
 import webdriver_manager.DriverManager;
 
-public class home_stepdef {	
+public class home_stepdef {
+
+	HomePage hm=new HomePage();
 
 	@Given("User opens DS Algo portal link")
 	public void user_opens_ds_algo_portal_link() {
@@ -14,11 +17,13 @@ public class home_stepdef {
 		DriverManager.getDriver().get(Constants.APP_URL);
 		DriverManager.getDriver().manage().window().maximize();
 		
+		
 		System.out.println("User opens DS Algo portal link");    
 	}
 
 	@When("User clicks {string} button")
 	public void user_clicks_button(String string) {
+		hm.btn_getstartedclick();
 		System.out.println("User clicks button");   
 	}
 
